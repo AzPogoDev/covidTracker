@@ -1,0 +1,61 @@
+$bg-primary: #060f2b;
+$bg-secondary: #040c23;
+$bg-light: rgba(255, 255, 255, 0.05);
+$light: #518afe;
+$normal: 400;
+$small: 1.25rem;
+$large: 1.8rem;
+$extra-small: 1rem;
+$white: rgba(255, 255, 255);
+$ghost: rgba(248, 248, 255, 0.2);
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+}
+
+.sub-title {
+  color: $light;
+  text-transform: uppercase;
+  font-weight: $normal;
+  font-size: $extra-small;
+  margin: 1rem 0;
+}
+
+
+.kpi-title {
+  color: $light;
+  text-transform: uppercase;
+  font-weight: $normal;
+  font-size: $extra-small;
+}
+
+.title {
+  color: $white;
+  font-size: $large;
+}
+
+.btn {
+  text-align: center;
+  background: $light;
+  border: 1px solid $ghost;
+  color: $white;
+  padding: 6px 12px;
+  border-radius: 5px;
+  margin: 1rem 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}

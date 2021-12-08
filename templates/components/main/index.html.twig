@@ -1,0 +1,129 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!{% endblock %}
+
+
+{% block body %}
+
+    <div class="hero">
+        <div class="container">
+            <div class="hero-wp">
+                <div class="left">
+                    <h2 class="sub-title">Covid Tracker</h2>
+                    <h1 class="title">
+                        The #1 French Covid Tracker
+                    </h1>
+                    <div class="btn-group">
+                        <div class="btn btn-primary">
+                            <a href="{{ path('statistique') }}">Voir les statistiques</a>
+                        </div>
+                        <div class="btn btn-secondary">
+                            <a href="{{ path('alldepartures') }}">Comparer les départements</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="kpi-wp">
+                        <div class="kpi">
+                            <p>{{ frtoday.conf }}</p>
+                            <h4 class="kpi-title">Cas confirmés</h4>
+                        </div>
+                        <div class="kpi">
+                            <p>{{ frtoday.dc_tot }}</p>
+                            <h4 class="kpi-title">Décés total</h4>
+                        </div>
+                        <div class="kpi">
+                            <p>{{ frtoday.hosp }}</p>
+                            <h4 class="kpi-title">Patients hospitalisés</h4>
+                        </div>
+                        <div class="kpi">
+                            <p>{{ frtoday.rea }}</p>
+                            <h4 class="kpi-title">En réanimation</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="container">
+            <div class="top-bar">
+                <div class="left">
+                    <h2 class="sub-title">
+                        Covid
+                    </h2>
+                    <h2 class="title">
+                        Filtre :
+                    </h2>
+                </div>
+                <div class="right">
+                    <div class="filter-wp">
+                        <div class="filter">
+                            <h2 class="kpi-title">Par régions :</h2>
+                            <select id="cars" name="boxes" class="boxselect">
+                                <option value="all">Toutes les régions</option>
+                                {% for stat in deptoday %}
+                                    <option value="{{ stat.lib_reg|lower|replace({' ': '-'})|replace({'ô': 'o'}) | replace({'\'': '-'}) }}">{{ stat.lib_reg }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="filter">
+                            <h2 class="kpi-title">Par départements :</h2>
+                            <select id="cars" name="boxes" class="boxselect">
+                                <option value="all">Tous les départements</option>
+                                {% for stat in deptoday %}
+                                    <option value="{{ stat.lib_dep|lower|replace({' ': '-'}) |replace({'ô': 'o'}) | replace({'\'': '-'}) }}">{{ stat.lib_dep }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="filter">
+                            <h2 class="kpi-title">Par :</h2>
+                            <select name="filter" id="filter" class="filter">
+                                <option value="name">
+                                    Tous
+                                </option>
+                                <option value="hosp">Réanimations
+                                </option>
+                                <option value="dchosp">Décès
+                                </option>
+                            </select>                            </select>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="statistique">
+                <div class="statistique-wp grid-filter" id="stats">
+                    {% for stat in deptoday %}
+                        <div class="statistique-content box {{ stat.lib_reg|lower|replace({' ': '-'})|replace({'ô': 'o'}) | replace({'\'': '-'}) }} {{ stat.lib_dep|lower|replace({' ': '-'}) |replace({'ô': 'o'}) | replace({'\'': '-'}) }}"
+                             data-dchosp=" {{ stat.dchosp }}"
+                             data-hosp=" {{ stat.hosp }}" data-name="{{ stat.dep }}">
+
+
+                            <h3 class="kpi-title">
+                                {{ stat.lib_dep }} <br><small>{{ stat.lib_reg }}</small>
+
+                            </h3>
+                            <p>
+                                {{ stat.hosp }}
+                                <span class="">patients en réanimations</span>
+                            </p>
+                            <p>
+                                {{ stat.dchosp }}
+                                <span class="">patients en mort à l'hopital</span>
+                            </p>
+
+                            <a class="btn btn-secondary" href="{{ path('stats', {'id' : stat.lib_dep }) }}">Voir les
+                                statistiques</a>
+
+                        </div>
+
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

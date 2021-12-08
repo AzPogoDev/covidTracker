@@ -1,0 +1,275 @@
+@import "theme";
+
+
+.hero {
+  background: $bg-primary;
+  padding: 3rem 0 3rem 0;
+
+  .hero-wp {
+    display: flex;
+
+    .left {
+      width: 50%;
+
+      .btn-group {
+        display: flex;
+
+        .btn {
+          &-primary {
+            background: $light;
+          }
+
+          &-secondary {
+            background: $bg-light;
+          }
+
+          &:nth-child(1) {
+            margin-right: 2rem;
+          }
+
+          a {
+            color: $white;
+          }
+
+          border-radius: 5px;
+          padding: 16px 26px;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    .right {
+      width: 50%;
+
+      .kpi-wp {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .kpi {
+
+          border: 1px solid $ghost;
+          width: 35%;
+          margin: 0.5rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: $white;
+          flex-direction: column;
+          background: $bg-light;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          border-radius: 5px;
+          padding: 2rem;
+
+          p {
+            font-size: $extra-small;
+          }
+        }
+      }
+    }
+  }
+}
+
+.main {
+  background: $bg-secondary;
+  min-height: 100Vh;
+
+  .top-bar {
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem 0;
+
+    .left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .right {
+      padding: 0.7rem 0;
+      padding-left: 1rem;
+
+      .filter-wp {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .filter {
+        padding-left: 1rem;
+        display: flex;
+        align-items: center;
+
+        .kpi-title {
+          margin-right: 2rem;
+        }
+      }
+    }
+  }
+
+  .statistique {
+    &-wp {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    &-content {
+      margin: 0.5rem;
+      flex: 0 0 20%;
+      max-width: 20%;
+      padding: 1.25rem;
+      background: $bg-light;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      display: flex;
+
+      justify-content: space-between;
+      flex-direction: column;
+      border: 1px solid $ghost;
+
+      & p {
+        color: $white;
+      }
+    }
+  }
+
+  .absolute-btn {
+    position: fixed;
+    bottom: 10%;
+    right: 5%;
+  }
+}
+
+.back-home {
+  position: fixed;
+  bottom: 5%;
+  left: 5%;
+}
+
+path:hover {
+  fill: white !important;
+}
+
+.stats {
+  padding: 2rem;
+
+  &-wp {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  section {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+
+
+  }
+
+  display: flex;
+  justify-content: center;
+  background: $bg-primary;
+  align-items: center;
+
+  canvas {
+    width: 60% !important;
+    height: 100% !important;
+  }
+
+  .absolute-box {
+
+    position: absolute;
+    top: 20%;
+    left: 2%;
+    background: $bg-light;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1Px solid $ghost;
+  }
+
+
+}
+.test {
+  min-height: 100vh;
+}
+.single {
+  min-height: 100vh;
+
+  canvas {
+    width: 60% !important;
+  }
+}
+
+.list {
+  list-style: none;
+
+  & li {
+    display: flex;
+    align-items: center;
+    color: $white;
+
+    & span {
+      margin: 1rem;
+      width: 15px;
+      display: block;
+      height: 15px;
+    }
+  }
+
+}
+
+.map {
+  position: relative;
+  margin-top: 4rem;
+
+  #map {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.absolute-label {
+  position: absolute;
+  right: 10%;
+  top: 30%;
+  width: 200px;
+  background: $bg-light;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1Px solid $ghost;
+}
+
+.absolute-title {
+  & .title {
+    font-size: $small;
+  }
+
+  position: absolute;
+  right: 5%;
+  top: -2%;
+  width: 500px;
+  background: $bg-light;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1Px solid $ghost;
+}
+
+.absolute-data {
+  & p {
+    color: $white;
+  }
+
+  position: absolute;
+  left: -8%;
+  top: 40%;
+  width: 200px;
+  background: $bg-light;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1Px solid $ghost;
+}

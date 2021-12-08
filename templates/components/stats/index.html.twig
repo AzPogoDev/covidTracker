@@ -8,21 +8,22 @@
 
 
 
-    <div class="stats test">
+    <div class="stats single">
         <div class="container">
             <div class="absolute-box">
-                <h1 class="title">Tous les départements</h1>
+                <h1 class="title">{{ dep.lib_dep }}</h1>
                 <h2 class="sub-title">Statistiques :</h2>
             </div>
 
             <div class="stats-wp">
-                <canvas id="myChart"></canvas>
+                <canvas id="myChart-bis"></canvas>
             </div>
 
             <div class="back-home">
                 <a href="{{ path('main') }}" class="btn btn-primary"><- Retourner sur l'accueil</a>
             </div>
         </div>
+    </div>
     </div>
 
 {% endblock %}
@@ -31,15 +32,14 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.2/dist/chart.min.js"></script>
     <script>
 
-        const ctx = document.getElementById('myChart').getContext('2d');
-        const myChart = new Chart(ctx, {
-            type: 'pie',
+        const ctxx = document.getElementById('myChart-bis').getContext('2d');
+        const myChart = new Chart(ctxx, {
+            type: 'doughnut',
             data: {
-                labels: {{ nom|raw }},
-
+                labels: ['Patients hospitalisés', 'Patients en réanimations', 'Décès à l’hôpital'],
                 datasets: [{
 
-                    data: {{ deces|raw }},
+                    data: [{{ dep.hosp | raw }}, {{ dep.rea | raw }}, {{ dep.dchosp | raw }}],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
@@ -60,11 +60,6 @@
                 }]
             },
 
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-
-            }
         });
     </script>
 {% endblock %}
