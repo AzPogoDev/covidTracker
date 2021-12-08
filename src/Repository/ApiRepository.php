@@ -2,7 +2,6 @@
 
 namespace App\Repository;
 
-use App\Entity\Api;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
@@ -26,7 +25,6 @@ class ApiRepository extends ServiceEntityRepository
     {
         $this->client = $client;
         $this->config = $parameterBag->get('covidPath');
-        parent::__construct($registry, Api::class);
     }
 
     public function makeRequest($url, bool $index)
